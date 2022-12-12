@@ -5,6 +5,10 @@
       "dependsOn": ["^build"],
       "outputs": ["dist/**", ".next/**"]
     },
+    "studio#build": {
+      "dependsOn": ["^build"],
+      "outputs": ["public/**"]
+    },
     "lint": {
       "outputs": []
     },
