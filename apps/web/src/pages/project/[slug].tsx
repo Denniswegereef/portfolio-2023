@@ -7,6 +7,8 @@ interface ProjectDetailProps {
 }
 
 const ProjectDetail = ({ data }: ProjectDetailProps) => {
+  if (!data) return <></>;
+
   return (
     <ul>
       <li>
