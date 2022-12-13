@@ -1,17 +1,26 @@
 import { groq } from "next-sanity";
 
-export const pagesBySlugQuery = groq`
-  *[_type == "page" && slug.current == $slug][0] {
-    _id,
-    overview,
-    slug,
+export const homeQuery = groq`
+  *[_type == "home"][0] {
     title,
+    descriptionFirst,
+    descriptionSecond,
+    seo {
+      overview,
+      title,
+    },  
+    showcaseProjects[] -> {
+      title,
+      caption,
+      "slug": slug.current,
+    }
   }
 `;
 
 export const projectBySlugQuery = groq`
-  *[_type == "project" && slug.current == $slug] {
+  *[_type == "project" && slug.current == $slug][0] {
     _id,
+    title,
     awards,
     caption,
     client,

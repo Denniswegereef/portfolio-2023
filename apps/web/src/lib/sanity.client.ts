@@ -1,21 +1,30 @@
 import { createClient } from "next-sanity";
 
 import {
-  // homePageQuery,
-  // homePageTitleQuery,
-  // pagesBySlugQuery,
+  homeQuery,
   projectBySlugQuery,
   projectsSlug,
-  // settingsQuery,
 } from "@/lib/sanity.queries";
 import { dataset, projectId, useCdn, apiVersion } from "@/lib/sanity.api";
-import { ProjectPayload } from "@/types";
+import { HomePayload, ProjectPayload } from "@/types";
 
 export const sanityClient = (token?: string) => {
   return projectId
     ? createClient({ projectId, dataset, apiVersion, useCdn })
     : null;
 };
+
+export async function getHome({
+  token,
+}: {
+  token?: string;
+}): Promise<HomePayload | undefined> {
+  return await sanityClient(token)
+    ?.fetch(homeQuery, {})
+    .catch((err) => {
+      console.log(err);
+    });
+}
 
 export async function getPageBySlug({
   token,
@@ -36,7 +45,7 @@ export async function getProjectBySlug({
   slug: string;
   token?: string;
 }): Promise<ProjectPayload | undefined> {
-  return await sanityClient()
+  return await sanityClient(token)
     ?.fetch(projectBySlugQuery, { slug })
     .catch((err) => {
       console.log(err);

@@ -1,9 +1,4 @@
-import {
-  getPageBySlug,
-  getProjectBySlug,
-  sanityClient,
-} from "@/lib/sanity.client";
-import { useRouter } from "next/router";
+import { getPageBySlug, getProjectBySlug } from "@/lib/sanity.client";
 import { GetStaticProps } from "next";
 import { ProjectPayload } from "@/types";
 
@@ -12,9 +7,16 @@ interface ProjectDetailProps {
 }
 
 const ProjectDetail = ({ data }: ProjectDetailProps) => {
-  const route = useRouter();
-
-  return <h1>Project detail - {route.query.slug}</h1>;
+  return (
+    <ul>
+      <li>
+        <h1>Title: {data.title}</h1>
+      </li>
+      <li>Slug: {data.slug}</li>
+      <li>Description: {data.caption}</li>
+      <li>Client: {data.client}</li>
+    </ul>
+  );
 };
 
 export default ProjectDetail;

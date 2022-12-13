@@ -1,9 +1,17 @@
 import { Box } from "@/components/box";
 import Head from "next/head";
 import Link from "next/link";
-import styles from "../styles/Home.module.css";
+import { GetStaticProps } from "next";
+import { getHome } from "@/lib/sanity.client";
+import { HomePayload } from "@/types";
 
-export default function Home() {
+interface HomeProps {
+  data: HomePayload;
+}
+
+export default function Home({ data }: HomeProps) {
+  console.log(data);
+
   return (
     <Box
       css={{
@@ -27,3 +35,22 @@ export default function Home() {
     </Box>
   );
 }
+
+export const getStaticProps: GetStaticProps<{
+  data: HomePayload;
+}> = async () => {
+  const data = await getHome({});
+
+  if (!data) {
+    return {
+      notFound: true,
+    };
+  }
+
+  return {
+    props: {
+      data,
+    },
+    revalidate: 60, // In seconds
+  };
+};
