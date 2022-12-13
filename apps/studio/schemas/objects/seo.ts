@@ -13,14 +13,8 @@ export default defineType({
     }),
 
     defineField({
-      type: 'string',
-      name: 'description',
-      title: 'Description',
-    }),
-
-    defineField({
       name: 'overview',
-      description: 'Used both for the <meta> description tag for SEO, and project subheader.',
+      description: 'Used for the <meta> description tag for SEO',
       title: 'Overview',
       type: 'array',
       of: [
@@ -29,7 +23,16 @@ export default defineType({
           lists: [],
           marks: {
             annotations: [],
-            decorators: [],
+            decorators: [
+              {
+                title: 'Italic',
+                value: 'em',
+              },
+              {
+                title: 'Strong',
+                value: 'strong',
+              },
+            ],
           },
           styles: [],
           type: 'block',

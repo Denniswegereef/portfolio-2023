@@ -10,6 +10,13 @@ export default defineType({
   // liveEdit: true,
   fields: [
     defineField({
+      type: 'seo',
+      name: 'seo',
+      title: 'Seo',
+      validation: (rule) => rule.required(),
+    }),
+
+    defineField({
       name: 'title',
       description: 'This field is the title of your project.',
       title: 'Title',
@@ -29,23 +36,22 @@ export default defineType({
       validation: (rule) => rule.required(),
     }),
 
-    defineField({
-      type: 'seo',
-      name: 'seo',
-      title: 'Seo',
-      validation: (rule) => rule.required(),
-    }),
+    // defineField({
+    //   name: 'coverImage',
+    //   title: 'Cover Image',
+    //   description:
+    //     'This image will be used as the cover image for the project. If you choose to add it to the show case projects, this is the image displayed in the list within the homepage.',
+    //   type: 'image',
+    //   options: {
+    //     hotspot: true,
+    //   },
+    //   validation: (rule) => rule.required(),
+    // }),
 
     defineField({
-      name: 'coverImage',
-      title: 'Cover Image',
-      description:
-        'This image will be used as the cover image for the project. If you choose to add it to the show case projects, this is the image displayed in the list within the homepage.',
-      type: 'image',
-      options: {
-        hotspot: true,
-      },
-      validation: (rule) => rule.required(),
+      name: 'caption',
+      title: 'Big caption',
+      type: 'string',
     }),
 
     defineField({
@@ -67,8 +73,8 @@ export default defineType({
     }),
 
     defineField({
-      name: 'tags',
-      title: 'Tags',
+      name: 'awards',
+      title: 'Awards',
       type: 'array',
       of: [{type: 'string'}],
       options: {
@@ -78,65 +84,94 @@ export default defineType({
 
     defineField({
       name: 'description',
-      title: 'Project Description',
+      description: 'Longer description',
+      title: 'Description',
       type: 'array',
       of: [
+        // Paragraphs
         defineArrayMember({
-          type: 'block',
+          lists: [],
           marks: {
-            annotations: [
+            annotations: [],
+            decorators: [
               {
-                name: 'link',
-                type: 'object',
-                title: 'Link',
-                fields: [
-                  {
-                    name: 'href',
-                    type: 'url',
-                    title: 'Url',
-                  },
-                ],
+                title: 'Italic',
+                value: 'em',
+              },
+              {
+                title: 'Strong',
+                value: 'strong',
               },
             ],
           },
           styles: [],
-        }),
-
-        // Custom blocks
-        // defineArrayMember({
-        //   name: 'timeline',
-        //   type: 'timeline',
-        // }),
-
-        defineField({
-          type: 'image',
-          icon: ImageIcon,
-          name: 'image',
-          title: 'Image',
-          options: {
-            hotspot: true,
-          },
-          preview: {
-            select: {
-              imageUrl: 'asset.url',
-              title: 'caption',
-            },
-          },
-          fields: [
-            defineField({
-              title: 'Caption',
-              name: 'caption',
-              type: 'string',
-            }),
-            defineField({
-              name: 'alt',
-              type: 'string',
-              title: 'Alt text',
-              description: 'Alternative text for screenreaders. Falls back on caption if not set',
-            }),
-          ],
+          type: 'block',
         }),
       ],
+      validation: (rule) => rule.max(500).required(),
     }),
+
+    // defineField({
+    //   name: 'description',
+    //   title: 'Project Description',
+    //   type: 'array',
+    //   of: [
+    //     defineArrayMember({
+    //       type: 'block',
+    //       marks: {
+    //         annotations: [
+    //           {
+    //             name: 'link',
+    //             type: 'object',
+    //             title: 'Link',
+    //             fields: [
+    //               {
+    //                 name: 'href',
+    //                 type: 'url',
+    //                 title: 'Url',
+    //               },
+    //             ],
+    //           },
+    //         ],
+    //       },
+    //       styles: [],
+    //     }),
+
+    //     // Custom blocks
+    //     // defineArrayMember({
+    //     //   name: 'timeline',
+    //     //   type: 'timeline',
+    //     // }),
+
+    //     defineField({
+    //       type: 'image',
+    //       icon: ImageIcon,
+    //       name: 'image',
+    //       title: 'Image',
+    //       options: {
+    //         hotspot: true,
+    //       },
+    //       preview: {
+    //         select: {
+    //           imageUrl: 'asset.url',
+    //           title: 'caption',
+    //         },
+    //       },
+    //       fields: [
+    //         defineField({
+    //           title: 'Caption',
+    //           name: 'caption',
+    //           type: 'string',
+    //         }),
+    //         defineField({
+    //           name: 'alt',
+    //           type: 'string',
+    //           title: 'Alt text',
+    //           description: 'Alternative text for screenreaders. Falls back on caption if not set',
+    //         }),
+    //       ],
+    //     }),
+    //   ],
+    // }),
   ],
 })

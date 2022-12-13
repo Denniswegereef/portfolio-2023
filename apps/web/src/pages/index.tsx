@@ -1,13 +1,15 @@
-import { Box } from '@/components/box'
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import { Box } from "@/components/box";
+import Head from "next/head";
+import Link from "next/link";
+import styles from "../styles/Home.module.css";
 
 export default function Home() {
   return (
     <Box
       css={{
-        backgroundColor: 'black',
-      }}>
+        backgroundColor: "black",
+      }}
+    >
       <Head>
         <title>Portfolio 2023</title>
         <meta name="description" content="Portfolio 2022" />
@@ -16,10 +18,12 @@ export default function Home() {
 
       <Box
         css={{
-          color: 'white',
-        }}>
+          color: "white",
+        }}
+      >
         <h1>Portfolio 2023</h1>
+        <Link href="/project/coronadashboard">coronadashboard</Link>
       </Box>
     </Box>
-  )
+  );
 }

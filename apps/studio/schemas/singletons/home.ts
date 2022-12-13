@@ -10,17 +10,17 @@ export default defineType({
   // liveEdit: true,
   fields: [
     defineField({
-      name: 'title',
-      description: 'This field is the title of your personal website.',
-      title: 'Title',
-      type: 'string',
+      type: 'seo',
+      name: 'seo',
+      title: 'Seo',
       validation: (rule) => rule.required(),
     }),
 
     defineField({
-      type: 'seo',
-      name: 'seo',
-      title: 'Seo',
+      name: 'title',
+      description: 'This field is the title of your personal website.',
+      title: 'Title',
+      type: 'string',
       validation: (rule) => rule.required(),
     }),
 
