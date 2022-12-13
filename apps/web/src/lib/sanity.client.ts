@@ -10,7 +10,7 @@ import { HomePayload, ProjectPayload } from "@/types";
 
 export const sanityClient = (token?: string) => {
   return projectId
-    ? createClient({ projectId, dataset, apiVersion, useCdn })
+    ? createClient({ projectId, dataset, apiVersion, useCdn, token })
     : null;
 };
 

@@ -6,12 +6,10 @@ import { getHome } from "@/lib/sanity.client";
 import { HomePayload } from "@/types";
 
 interface HomeProps {
-  data: HomePayload;
+  content: HomePayload;
 }
 
-export default function Home({ data }: HomeProps) {
-  console.log(data);
-
+export default function Home({ content }: HomeProps) {
   return (
     <Box
       css={{
@@ -29,15 +27,24 @@ export default function Home({ data }: HomeProps) {
           color: "white",
         }}
       >
-        <h1>Portfolio 2023</h1>
-        <Link href="/project/coronadashboard">coronadashboard</Link>
+        <h1>{content.title}</h1>
+        <p>{content.descriptionFirst}</p>
+        <p>{content.descriptionSecond}</p>
+
+        <ul>
+          {content.showcaseProjects.map((project) => (
+            <li key={project.id}>
+              <Link href={`project/${project.slug}`}>{project.title}</Link>
+            </li>
+          ))}
+        </ul>
       </Box>
     </Box>
   );
 }
 
 export const getStaticProps: GetStaticProps<{
-  data: HomePayload;
+  content: HomePayload;
 }> = async () => {
   const data = await getHome({});
 
@@ -49,7 +56,7 @@ export const getStaticProps: GetStaticProps<{
 
   return {
     props: {
-      data,
+      content: data,
     },
     revalidate: 60, // In seconds
   };

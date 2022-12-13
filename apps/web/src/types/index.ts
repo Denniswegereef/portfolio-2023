@@ -23,5 +23,5 @@ export interface HomePayload {
   descriptionFirst: string;
   descriptionSecond: string;
   seo: Seo;
-  showcaseProjects: Pick<ProjectPayload, "title" | "slug" | "caption">;
+  showcaseProjects: Pick<ProjectPayload, "title" | "slug" | "caption" | "id">[];
 }

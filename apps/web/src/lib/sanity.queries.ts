@@ -10,6 +10,7 @@ export const homeQuery = groq`
       title,
     },  
     showcaseProjects[] -> {
+      id,
       title,
       caption,
       "slug": slug.current,
