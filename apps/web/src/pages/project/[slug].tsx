@@ -1,6 +1,8 @@
 import { getPageBySlug, getProjectBySlug } from "@/lib/sanity.client";
 import { GetStaticProps } from "next";
 import { ProjectPayload } from "@/types";
+import { urlForImage } from "@/lib/sanity.image";
+import { ImageBox } from "@/components/ImageBox";
 
 interface ProjectDetailProps {
   data: ProjectPayload;
@@ -14,6 +16,10 @@ const ProjectDetail = ({ data }: ProjectDetailProps) => {
       <li>
         <h1>Title: {data.title}</h1>
       </li>
+      <ImageBox
+        image={data.coverImage}
+        alt={`Cover image from ${data.title}`}
+      />
       <li>Slug: {data.slug}</li>
       <li>Description: {data.caption}</li>
       <li>Client: {data.client}</li>

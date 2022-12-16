@@ -12,6 +12,13 @@ module.exports = {
 
   //   return config
   // },
+  images: {
+    remotePatterns: [
+      { hostname: "cdn.sanity.io" },
+      { hostname: "source.unsplash.com" },
+    ],
+  },
+
   experimental: {
     transpilePackages: ["ui"],
   },
