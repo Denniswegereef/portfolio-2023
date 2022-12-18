@@ -1,15 +1,18 @@
-import { createStitches } from '@stitches/react'
-import media from './media'
-import fontSizes from './font-sizes'
-import colors from './colors'
+import { createStitches } from "@stitches/react";
+import { media } from "./media";
+import { space } from "./space";
+import { sizes } from "./sizes";
+import { fontSizesText } from "./font-sizes";
+import { utils } from "./utils";
+import colors from "./colors";
 
 export const { styled, getCssText } = createStitches({
   theme: {
-    // fonts: {
-    //   system: 'system-ui',
-    // },
     colors,
     media,
-    fontSizes,
+    space,
+    sizes,
+    fontSizes: fontSizesText,
   },
-})
+  utils,
+});

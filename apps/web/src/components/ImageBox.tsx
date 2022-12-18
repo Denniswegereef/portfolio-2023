@@ -1,38 +1,34 @@
 import { urlForImage } from "@/lib/sanity.image";
 import Image from "next/image";
+import type { Image as SanityImage } from "sanity";
 
 interface ImageBoxProps {
-  image?: { asset?: any };
-  alt?: string;
+  image: SanityImage;
+  alt: string;
   width?: number;
   height?: number;
   size?: string;
-  classesWrapper?: string;
 }
 
 export function ImageBox({
   image,
   alt = "Cover image",
-  width = 3500,
-  height = 2000,
+  width = 1500,
+  height = 1000,
   size = "100vw",
-  classesWrapper,
 }: ImageBoxProps) {
   const imageUrl =
     image && urlForImage(image)?.height(height).width(width).fit("crop").url();
 
+  if (!imageUrl) return <></>;
+
   return (
-    <div>
-      {imageUrl && (
-        <Image
-          className="absolute h-full w-full"
-          alt={alt}
-          width={width}
-          height={height}
-          sizes={size}
-          src={imageUrl}
-        />
-      )}
-    </div>
+    <Image
+      alt={alt}
+      width={width}
+      height={height}
+      sizes={size}
+      src={imageUrl}
+    />
   );
 }

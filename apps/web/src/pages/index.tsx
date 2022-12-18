@@ -33,6 +33,8 @@ export default function Home({ content }: HomeProps) {
         <p>{content.descriptionFirst}</p>
         <p>{content.descriptionSecond}</p>
 
+        <Link href="/elements">Go to the elements</Link>
+
         <ul>
           {content.showcaseProjects.map((project) => (
             <li key={project.id}>
