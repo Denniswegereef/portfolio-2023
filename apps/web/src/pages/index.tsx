@@ -4,14 +4,12 @@ import Link from "next/link";
 import { GetStaticProps } from "next";
 import { getHome } from "@/lib/sanity.client";
 import { HomePayload } from "@/types";
-import { urlForImage } from "@/lib/sanity.image";
 
 interface HomeProps {
   content: HomePayload;
 }
 
 export default function Home({ content }: HomeProps) {
-  // const imageUrl = image && urlForImage(image)?.width(1200).height(627).fit('crop').url()
   return (
     <Box
       css={{
