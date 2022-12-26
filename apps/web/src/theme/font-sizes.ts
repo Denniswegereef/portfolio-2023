@@ -1,14 +1,18 @@
 import { rem } from "polished";
 
 export const fontSizesText = {
-  "1": rem(25),
-  "2": rem(16),
-  "3": rem(12),
+  sm: rem(14),
+  base: rem(16),
+  lg: rem(18),
+  xl: rem(22),
+  "2xl": rem(28),
 };
 
 export const fontSizesHeading = {
-  "1": rem(150),
-  "2": rem(100),
-  "3": rem(50),
-  "4": rem(25),
+  xs: rem(16),
+  sm: rem(22),
+  md: rem(48),
+  lg: rem(52),
+  xl: rem(68),
+  "2xl": rem(78),
 };

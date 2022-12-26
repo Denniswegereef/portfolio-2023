@@ -4,20 +4,28 @@ import { fontSizesHeading } from "@/theme/font-sizes";
 export const Heading = styled("h1", {
   variants: {
     size: {
-      1: {
-        fontSize: fontSizesHeading["1"],
+      xs: {
+        fontSize: fontSizesHeading["xs"],
         lineHeight: 0.8,
       },
-      2: {
-        fontSize: fontSizesHeading["2"],
+      sm: {
+        fontSize: fontSizesHeading["sm"],
         lineHeight: 0.8,
       },
-      3: {
-        fontSize: fontSizesHeading["3"],
+      md: {
+        fontSize: fontSizesHeading["md"],
         lineHeight: 0.8,
       },
-      4: {
-        fontSize: fontSizesHeading["4"],
+      lg: {
+        fontSize: fontSizesHeading["lg"],
+        lineHeight: 0.8,
+      },
+      xl: {
+        fontSize: fontSizesHeading["2xl"],
+        lineHeight: 0.8,
+      },
+      "2xl": {
+        fontSize: fontSizesHeading["2xl"],
         lineHeight: 0.8,
       },
     },

@@ -5,16 +5,24 @@ export const Text = styled("p", {
 
   variants: {
     size: {
-      1: {
-        fontSize: "$1",
+      sm: {
+        fontSize: "$sm",
         lineHeight: 0.8,
       },
-      2: {
-        fontSize: "$2",
+      base: {
+        fontSize: "$base",
         lineHeight: 0.8,
       },
-      3: {
-        fontSize: "$3",
+      lg: {
+        fontSize: "$lg",
+        lineHeight: 0.8,
+      },
+      xl: {
+        fontSize: "$2xl",
+        lineHeight: 0.8,
+      },
+      "2xl": {
+        fontSize: "$2xl",
         lineHeight: 0.8,
       },
     },

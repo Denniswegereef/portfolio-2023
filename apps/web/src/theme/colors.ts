@@ -1,21 +1,25 @@
 const colors = {
   black: "#18181B",
-  // hiContrast: 'hsl(206,10%,5%)',
-  // loContrast: 'white',
+  "black-light": "#27272a",
 
-  // gray100: "hsl(206,22%,99%)",
-  // gray200: "hsl(206,12%,97%)",
-  // gray300: "hsl(206,11%,92%)",
-  // gray400: "hsl(206,10%,84%)",
-  // gray500: "hsl(206,10%,76%)",
-  // gray600: "hsl(206,10%,44%)",
+  white: "#f8fafc",
 
-  // purple100: "hsl(252,100%,99%)",
-  // purple200: "hsl(252,100%,98%)",
-  // purple300: "hsl(252,100%,94%)",
-  // purple400: "hsl(252,75%,84%)",
-  // purple500: "hsl(252,78%,60%)",
-  // purple600: "hsl(252,80%,53%)",
+  gray: "#f9fafb",
+  "gray-light": "#e5e7eb",
+  "gray-dark": "#9ca3af",
+
+  primary: "#38bdf8",
+  "primary-100": "#bae6fd",
+  "primary-200": "#7dd3fc",
+
+  secondary: "#fb7185",
+  "secondary-100": "#fecdd3",
+  "secondary-200": "#fda4af",
+
+  tertiary: "#22d3ee",
+
+  current: "currentColor",
+  transparent: "transparent",
 };
 
 export default colors;

@@ -9,10 +9,11 @@ import colors from "./colors";
 export const { styled, getCssText } = createStitches({
   theme: {
     colors,
-    media,
     space,
     sizes,
     fontSizes: fontSizesText,
   },
+
+  media,
   utils,
 });

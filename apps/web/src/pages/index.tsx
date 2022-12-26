@@ -1,4 +1,4 @@
-import { Box } from "@/components/box";
+import { Box } from "@/components/base";
 import Head from "next/head";
 import Link from "next/link";
 import { GetStaticProps } from "next";

@@ -1,18 +1,22 @@
 import { styled } from "@stitches/react";
 
-export const Box = styled("div", {
+export const Stack = styled("div", {
   variants: {
     stack: {
       horizontal: {
         display: "flex",
-        gap: "$1",
+        gap: "$3",
       },
 
       vertical: {
         display: "flex",
         flexDirection: "column",
-        gap: "$1",
+        gap: "$3",
       },
     },
+  },
+
+  defaultVariants: {
+    stack: "horizontal",
   },
 });
