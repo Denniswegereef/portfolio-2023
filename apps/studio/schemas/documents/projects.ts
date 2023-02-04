@@ -1,5 +1,5 @@
 import {DocumentIcon, ImageIcon} from '@sanity/icons'
-import {defineArrayMember, defineField, defineType} from 'sanity'
+import {SlugValidationContext, defineArrayMember, defineField, defineType} from 'sanity'
 
 export default defineType({
   name: 'project',
@@ -31,7 +31,8 @@ export default defineType({
       options: {
         source: 'title',
         maxLength: 96,
-        isUnique: (value, context) => context.defaultIsUnique(value, context),
+        isUnique: (value: string, context: SlugValidationContext) =>
+          context.defaultIsUnique(value, context),
       },
       validation: (rule) => rule.required(),
     }),
@@ -52,24 +53,28 @@ export default defineType({
       name: 'caption',
       title: 'Big caption',
       type: 'string',
+      validation: (rule) => rule.required(),
     }),
 
     defineField({
       name: 'year',
       title: 'Year',
       type: 'string',
+      validation: (rule) => rule.required(),
     }),
 
     defineField({
       name: 'client',
       title: 'Client',
       type: 'string',
+      validation: (rule) => rule.required(),
     }),
 
     defineField({
       name: 'site',
       title: 'Site',
       type: 'url',
+      validation: (rule) => rule.required(),
     }),
 
     defineField({
@@ -82,34 +87,36 @@ export default defineType({
       },
     }),
 
-    defineField({
-      name: 'description',
-      description: 'Longer description',
-      title: 'Description',
-      type: 'array',
-      of: [
-        // Paragraphs
-        defineArrayMember({
-          lists: [],
-          marks: {
-            annotations: [],
-            decorators: [
-              {
-                title: 'Italic',
-                value: 'em',
-              },
-              {
-                title: 'Strong',
-                value: 'strong',
-              },
-            ],
-          },
-          styles: [],
-          type: 'block',
-        }),
-      ],
-      validation: (rule) => rule.max(500).required(),
-    }),
+    // validation: (rule) => rule.required(),
+
+    // defineField({
+    //   name: 'description',
+    //   description: 'Longer description',
+    //   title: 'Description',
+    //   type: 'array',
+    //   of: [
+    //     // Paragraphs
+    //     defineArrayMember({
+    //       lists: [],
+    //       marks: {
+    //         annotations: [],
+    //         decorators: [
+    //           {
+    //             title: 'Italic',
+    //             value: 'em',
+    //           },
+    //           {
+    //             title: 'Strong',
+    //             value: 'strong',
+    //           },
+    //         ],
+    //       },
+    //       styles: [],
+    //       type: 'block',
+    //     }),
+    //   ],
+    //   validation: (rule) => rule.max(500).required(),
+    // }),
 
     // defineField({
     //   name: 'description',
