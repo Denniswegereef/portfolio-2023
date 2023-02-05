@@ -1,8 +1,8 @@
-import type { Block, Image } from "sanity";
+import type { PortableTextBlock, Image } from "sanity";
 
 interface Seo {
   title: string;
-  overview: Block[];
+  overview: PortableTextBlock[];
 }
 
 export interface ProjectPayload {
@@ -11,7 +11,7 @@ export interface ProjectPayload {
   client: string;
   title: string;
   coverImage: Image;
-  description: Block[];
+  description: PortableTextBlock[];
   seo: Seo;
   slug: string;
   awards?: string[];
