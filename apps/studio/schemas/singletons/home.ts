@@ -17,92 +17,41 @@ export default defineType({
     }),
 
     defineField({
-      name: 'title',
-      description: 'This field is the title of your personal website.',
+      name: 'description',
+      description: 'Short description in the hero',
       type: 'string',
       validation: (rule) => rule.required(),
     }),
 
     defineField({
-      name: 'descriptionFirst',
-      description: 'Description one',
-      type: 'string',
-      validation: (rule) => rule.required(),
+      name: 'expertises',
+      title: 'Expertises',
+      description: 'Expertises in the hero',
+      type: 'array',
+      of: [
+        defineArrayMember({
+          type: 'string',
+        }),
+      ],
     }),
 
     defineField({
-      name: 'descriptionSecond',
-      description: 'Description one',
-      title: 'Title',
-      type: 'string',
-      validation: (rule) => rule.required(),
-    }),
-
-    // defineField({
-    //   name: 'description',
-    //   description: 'Longer description',
-    //   title: 'Description',
-    //   type: 'array',
-    //   of: [
-    //     // Paragraphs
-    //     defineArrayMember({
-    //       lists: [],
-    //       marks: {
-    //         annotations: [
-    //           {
-    //             name: 'internalLink',
-    //             type: 'object',
-    //             title: 'Internal link',
-    //             fields: [
-    //               {
-    //                 name: 'reference',
-    //                 type: 'reference',
-    //                 title: 'Reference',
-    //                 to: [{type: 'project'}],
-    //               },
-    //             ],
-    //           },
-    //           {
-    //             name: 'link',
-    //             type: 'object',
-    //             title: 'External link',
-    //             fields: [
-    //               {
-    //                 name: 'href',
-    //                 type: 'url',
-    //                 title: 'URL',
-    //               },
-    //               {
-    //                 title: 'Open in new tab',
-    //                 name: 'blank',
-    //                 description: 'Read https://css-tricks.com/use-target_blank/',
-    //                 type: 'boolean',
-    //               },
-    //             ],
-    //           },
-    //         ],
-    //         decorators: [
-    //           {
-    //             title: 'Italic',
-    //             value: 'em',
-    //           },
-    //           {
-    //             title: 'Strong',
-    //             value: 'strong',
-    //           },
-    //         ],
-    //       },
-    //       styles: [{title: 'Normal', value: 'normal'}],
-    //       type: 'block',
-    //     }),
-    //   ],
-    //   validation: (rule) => rule.max(500).required(),
-    // }),
-
-    defineField({
-      name: 'showcaseProjects',
-      title: 'Showcase projects',
+      name: 'highlightedProjects',
+      title: 'Highlighted projects',
       description: 'These are the projects that will appear first on your landing page.',
+      type: 'array',
+      of: [
+        defineArrayMember({
+          type: 'reference',
+          to: [{type: 'project'}],
+        }),
+      ],
+    }),
+
+    defineField({
+      name: 'archivedProjects',
+      title: 'Archived projects',
+      description: 'List of archived projects',
       type: 'array',
       of: [
         defineArrayMember({
@@ -115,12 +64,12 @@ export default defineType({
 
   preview: {
     select: {
-      title: 'title',
+      description: 'description',
     },
-    prepare({title}) {
+    prepare({description}) {
       return {
         subtitle: 'Home',
-        title,
+        description,
       }
     },
   },

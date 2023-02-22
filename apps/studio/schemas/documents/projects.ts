@@ -17,6 +17,18 @@ export default defineType({
     }),
 
     defineField({
+      name: 'coverImage',
+      title: 'Cover Image',
+      description:
+        'This image will be used as the cover image for the project. If you choose to add it to the show case projects, this is the image displayed in the list within the homepage.',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
+      validation: (rule) => rule.required(),
+    }),
+
+    defineField({
       name: 'title',
       description: 'This field is the title of your project.',
       title: 'Title',
@@ -38,18 +50,6 @@ export default defineType({
     }),
 
     defineField({
-      name: 'coverImage',
-      title: 'Cover Image',
-      description:
-        'This image will be used as the cover image for the project. If you choose to add it to the show case projects, this is the image displayed in the list within the homepage.',
-      type: 'image',
-      options: {
-        hotspot: true,
-      },
-      validation: (rule) => rule.required(),
-    }),
-
-    defineField({
       name: 'caption',
       title: 'Big caption',
       type: 'string',
@@ -57,35 +57,49 @@ export default defineType({
     }),
 
     defineField({
-      name: 'year',
-      title: 'Year',
-      type: 'string',
+      name: 'description',
+      title: 'Description',
+      type: 'text',
       validation: (rule) => rule.required(),
     }),
 
     defineField({
-      name: 'client',
-      title: 'Client',
-      type: 'string',
-      validation: (rule) => rule.required(),
+      name: 'columnFirst',
+      title: 'First column',
+      description: 'First column that will appear',
+      type: 'column',
     }),
 
     defineField({
-      name: 'site',
-      title: 'Site',
-      type: 'url',
-      validation: (rule) => rule.required(),
+      name: 'columnSecond',
+      title: 'Second column',
+      description: 'Second column that will appear, this one is optional',
+      type: 'column',
     }),
 
-    defineField({
-      name: 'awards',
-      title: 'Awards',
-      type: 'array',
-      of: [{type: 'string'}],
-      options: {
-        layout: 'tags',
-      },
-    }),
+    // defineField({
+    //   name: 'client',
+    //   title: 'Client',
+    //   type: 'string',
+    //   validation: (rule) => rule.required(),
+    // }),
+
+    // defineField({
+    //   name: 'site',
+    //   title: 'Site',
+    //   type: 'url',
+    //   validation: (rule) => rule.required(),
+    // }),
+
+    // defineField({
+    //   name: 'awards',
+    //   title: 'Awards',
+    //   type: 'array',
+    //   of: [{type: 'string'}],
+    //   options: {
+    //     layout: 'tags',
+    //   },
+    // }),
 
     // validation: (rule) => rule.required(),
 

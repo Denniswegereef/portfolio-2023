@@ -13,32 +13,40 @@ export default defineType({
     }),
 
     defineField({
+      type: 'text',
       name: 'overview',
-      description: 'Used for the <meta> description tag for SEO',
       title: 'Overview',
-      type: 'array',
-      of: [
-        // Paragraphs
-        defineArrayMember({
-          lists: [],
-          marks: {
-            annotations: [],
-            decorators: [
-              {
-                title: 'Italic',
-                value: 'em',
-              },
-              {
-                title: 'Strong',
-                value: 'strong',
-              },
-            ],
-          },
-          styles: [],
-          type: 'block',
-        }),
-      ],
+      rows: 5,
       validation: (rule) => rule.max(155).required(),
     }),
+
+    // defineField({
+    //   name: 'overview',
+    //   description: 'Used for the <meta> description tag for SEO',
+    //   title: 'Overview',
+    //   type: 'array',
+    //   of: [
+    //     // Paragraphs
+    //     defineArrayMember({
+    //       lists: [],
+    //       marks: {
+    //         annotations: [],
+    //         decorators: [
+    //           {
+    //             title: 'Italic',
+    //             value: 'em',
+    //           },
+    //           {
+    //             title: 'Strong',
+    //             value: 'strong',
+    //           },
+    //         ],
+    //       },
+    //       styles: [],
+    //       type: 'block',
+    //     }),
+    //   ],
+    //   validation: (rule) => rule.max(155).required(),
+    // }),
   ],
 })

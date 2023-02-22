@@ -19,9 +19,12 @@ export interface ProjectPayload {
 
 export interface HomePayload {
   id: string;
-  title: string;
-  descriptionFirst: string;
-  descriptionSecond: string;
   seo: Seo;
-  showcaseProjects: Pick<ProjectPayload, "title" | "slug" | "caption" | "id">[];
+  description: string;
+  expertises?: string[];
+  projects: {
+    highlighted: any[];
+    archived: any[];
+  };
+  // showcaseProjects: Pick<ProjectPayload, "title" | "slug" | "caption" | "id">[];
 }

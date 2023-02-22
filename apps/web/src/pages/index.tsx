@@ -1,9 +1,9 @@
 import { Box } from "@/components/base";
 import Head from "next/head";
-import Link from "next/link";
 import { GetStaticProps } from "next";
 import { getHome } from "@/lib/sanity.client";
 import { HomePayload } from "@/types";
+import Link from "next/link";
 
 interface HomeProps {
   content: HomePayload;
@@ -11,36 +11,48 @@ interface HomeProps {
 
 export default function Home({ content }: HomeProps) {
   return (
-    <Box
-      css={{
-        backgroundColor: "black",
-      }}
-    >
+    <Box>
       <Head>
         <title>Portfolio 2023</title>
         <meta name="description" content="Portfolio 2022" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Box
-        css={{
-          color: "white",
-        }}
-      >
-        <h1>{content.title}</h1>
-        <p>{content.descriptionFirst}</p>
-        <p>{content.descriptionSecond}</p>
+      <h1>Portfolio</h1>
+      <p>{content.description}</p>
+      <ul>
+        {content.expertises?.map((expertise, index) => (
+          <li key={`${expertise}-${index}`}>{expertise}</li>
+        ))}
+      </ul>
 
-        <Link href="/elements">Go to the elements</Link>
-
+      <section>
+        <h2>Highglighted</h2>
         <ul>
-          {content.showcaseProjects.map((project) => (
-            <li key={project.id}>
-              <Link href={`project/${project.slug}`}>{project.title}</Link>
-            </li>
+          {content.projects.highlighted?.map((project, index) => (
+            <Link
+              href={`project/${project.slug}`}
+              key={`${project.slug}-${index}`}
+            >
+              {project.title}
+            </Link>
           ))}
         </ul>
-      </Box>
+      </section>
+
+      <section>
+        <h2>Archived</h2>
+        <ul>
+          {content.projects.archived?.map((project, index) => (
+            <Link
+              href={`project/${project.slug}`}
+              key={`${project.slug}-${index}`}
+            >
+              {project.title}
+            </Link>
+          ))}
+        </ul>
+      </section>
     </Box>
   );
 }

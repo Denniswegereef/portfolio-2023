@@ -2,18 +2,23 @@ import { groq } from "next-sanity";
 
 export const homeQuery = groq`
   *[_type == "home"][0] {
-    title,
-    descriptionFirst,
-    descriptionSecond,
     seo {
       overview,
       title,
-    },  
-    showcaseProjects[] -> {
-      id,
-      title,
-      caption,
-      "slug": slug.current,
+    }, 
+    description,
+    expertises,
+    "projects": {
+      "highlighted": highlightedProjects[] -> {
+        title,
+        caption,
+        "slug": slug.current,
+      },
+      "archived": archivedProjects[] -> {
+        title,
+        caption,
+        "slug": slug.current,
+      } 
     }
   }
 `;
