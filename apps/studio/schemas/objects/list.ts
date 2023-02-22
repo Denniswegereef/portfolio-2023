@@ -8,7 +8,6 @@ export default defineType({
     defineField({
       type: 'string',
       name: 'title',
-      description: 'Big bold title',
       title: 'Title',
       validation: (rule) => rule.required(),
     }),
@@ -16,7 +15,6 @@ export default defineType({
     defineField({
       type: 'string',
       name: 'string',
-      description: 'Answer underneath',
       title: 'Answer',
       validation: (rule) => rule.required(),
     }),

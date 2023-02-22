@@ -8,15 +8,12 @@ export default defineType({
     defineField({
       type: 'string',
       name: 'title',
-      description: 'Column title',
       title: 'Title',
-      validation: (rule) => rule.required(),
     }),
 
     defineField({
-      name: 'columnOne',
-      title: 'Column one',
-      description: 'First column that will appear',
+      name: 'content',
+      title: 'Content',
       type: 'array',
       of: [
         defineArrayMember({

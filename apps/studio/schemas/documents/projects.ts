@@ -68,6 +68,7 @@ export default defineType({
       title: 'First column',
       description: 'First column that will appear',
       type: 'column',
+      validation: (rule) => rule.required(),
     }),
 
     defineField({
@@ -75,6 +76,13 @@ export default defineType({
       title: 'Second column',
       description: 'Second column that will appear, this one is optional',
       type: 'column',
+    }),
+
+    defineField({
+      name: 'url',
+      title: 'Url',
+      type: 'string',
+      validation: (rule) => rule.required(),
     }),
 
     // defineField({
