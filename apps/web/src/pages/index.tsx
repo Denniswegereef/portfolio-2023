@@ -18,6 +18,8 @@ export default function Home({ content }: HomeProps) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+      <Link href="/experiments">Go to experiments</Link>
+
       <h1>Portfolio</h1>
       <p>{content.description}</p>
       <ul>

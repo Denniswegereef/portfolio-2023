@@ -1,4 +1,5 @@
 import { styled } from "@stitches/react";
+import { motion } from "framer-motion";
 
 export const Box = styled("div", {
   variants: {
@@ -16,3 +17,5 @@ export const Box = styled("div", {
     },
   },
 });
+
+export const MotionBox = motion(Box);

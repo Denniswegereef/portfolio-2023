@@ -9,21 +9,20 @@ interface ProjectDetailProps {
 }
 
 const ProjectDetail = ({ data }: ProjectDetailProps) => {
-  if (!data) return <></>;
-
   return (
-    <ul>
-      <li>
-        <h1>Title: {data.title}</h1>
-      </li>
-      <ImageBox
-        image={data.coverImage}
-        alt={`Cover image from ${data.title}`}
-      />
-      <li>Slug: {data.slug}</li>
-      <li>Description: {data.caption}</li>
-      <li>Client: {data.client}</li>
-    </ul>
+    <div>
+      <div>coverImage</div>
+      <h1>{data.title}</h1>
+      <p>{data.description}</p>
+      <ul>
+        {data.headerMetaList.content.map((item, index) => (
+          <li key={`${item.title}-${index}`}>
+            <p>{item.title}</p>
+            <p>{item.answer}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 };
 

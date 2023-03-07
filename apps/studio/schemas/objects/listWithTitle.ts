@@ -1,8 +1,9 @@
 import {defineField, defineType, defineArrayMember} from 'sanity'
 
 export default defineType({
-  name: 'column',
-  title: 'Column',
+  name: 'listWithTitle',
+  title: 'List with title',
+  description: 'Title above, this is optional',
   type: 'object',
   fields: [
     defineField({

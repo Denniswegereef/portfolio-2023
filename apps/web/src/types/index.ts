@@ -2,29 +2,43 @@ import type { PortableTextBlock, Image } from "sanity";
 
 interface Seo {
   title: string;
-  overview: PortableTextBlock[];
+  overview: string;
+}
+
+interface List {
+  title: string;
+  answer: string;
+}
+
+interface ListWithTitle {
+  title?: string;
+  content: List[];
 }
 
 export interface ProjectPayload {
-  id: string;
-  caption: string;
-  client: string;
-  title: string;
-  coverImage: Image;
-  description: PortableTextBlock[];
+  _id: string;
   seo: Seo;
+  coverImage: Image;
+  title: string;
+  url: string;
   slug: string;
-  awards?: string[];
+  caption: string;
+  description: string;
+  headerMetaList: ListWithTitle;
 }
 
+type HomeProjectType = Pick<
+  ProjectPayload,
+  "title" | "slug" | "caption" | "_id"
+>[];
+
 export interface HomePayload {
-  id: string;
+  _id: string;
   seo: Seo;
   description: string;
   expertises?: string[];
   projects: {
-    highlighted: any[];
-    archived: any[];
+    highlighted: HomeProjectType[];
+    archived: HomeProjectType[];
   };
-  // showcaseProjects: Pick<ProjectPayload, "title" | "slug" | "caption" | "id">[];
 }

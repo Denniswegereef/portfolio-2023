@@ -16,22 +16,19 @@ export default defineType({
       validation: (rule) => rule.required(),
     }),
 
-    defineField({
-      name: 'description',
-      description: 'Short description in the hero',
-      type: 'string',
-      validation: (rule) => rule.required(),
-    }),
+    // defineField({
+    //   name: 'description',
+    //   description: 'Short description in the hero',
+    //   type: 'string',
+    //   validation: (rule) => rule.required(),
+    // }),
   ],
 
   preview: {
-    select: {
-      description: 'description',
-    },
-    prepare({description}) {
+    prepare() {
       return {
-        subtitle: 'Home',
-        description,
+        subtitle: 'About',
+        description: 'About',
       }
     },
   },

@@ -17,6 +17,14 @@ export default defineType({
     }),
 
     defineField({
+      type: 'passwordBlock',
+      name: 'passwordBlock',
+      title: 'Password protected',
+      initialValue: false,
+      validation: (rule) => rule.required(),
+    }),
+
+    defineField({
       name: 'coverImage',
       title: 'Cover Image',
       description:
@@ -32,6 +40,13 @@ export default defineType({
       name: 'title',
       description: 'This field is the title of your project.',
       title: 'Title',
+      type: 'string',
+      validation: (rule) => rule.required(),
+    }),
+
+    defineField({
+      name: 'url',
+      title: 'Url',
       type: 'string',
       validation: (rule) => rule.required(),
     }),
@@ -64,26 +79,13 @@ export default defineType({
     }),
 
     defineField({
-      name: 'columnFirst',
-      title: 'First column',
-      description: 'First column that will appear',
-      type: 'column',
+      name: 'headerMetaList',
+      title: 'List next to the description',
+      type: 'listWithTitle',
       validation: (rule) => rule.required(),
     }),
 
-    defineField({
-      name: 'columnSecond',
-      title: 'Second column',
-      description: 'Second column that will appear, this one is optional',
-      type: 'column',
-    }),
-
-    defineField({
-      name: 'url',
-      title: 'Url',
-      type: 'string',
-      validation: (rule) => rule.required(),
-    }),
+    // REQUIRES PASSWORD
 
     // defineField({
     //   name: 'client',
